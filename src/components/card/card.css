@@ -1,0 +1,45 @@
+.card_container{
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    left: 50%;
+    right: 50%;
+    margin: auto;
+    width: 92%;
+    border-radius: 10px;
+    min-height: 30%;
+}
+
+.card_title{
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+    padding: 10px 25px;
+
+}
+
+.card_content{
+    padding-top: 20px;
+
+}
+
+.input_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input_select{
+    margin-left: 100px
+}
+
+.input_select_feild{
+    width: 180px;
+    height: 25px;
+}
+
+.input_label{
+    padding-right: 20px
+    
+}
+
