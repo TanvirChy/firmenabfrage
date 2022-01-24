@@ -1,0 +1,25 @@
+.firmen_top_content{
+    padding-top: 20px;
+
+}
+ 
+.input_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input_select{
+    margin-left: 100px
+}
+
+.input_select_feild{
+    width: 180px;
+    height: 25px;
+}
+
+.input_label{
+    padding-right: 20px
+    
+}

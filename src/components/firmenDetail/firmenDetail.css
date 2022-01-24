@@ -1,0 +1,25 @@
+.firmen_detail_content {
+    text-align: center;
+}
+
+.firmen_detail_row {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  word-wrap: break-word;
+}
+.firmen_detail_row p {
+  height: 15px;
+}
+.firmen-label {
+  width: 50%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.firmen-value {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}

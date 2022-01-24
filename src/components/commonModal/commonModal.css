@@ -19,6 +19,7 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  border-radius: 10px;
 }
 .modal__header {
   background-color: #eff2f7;
@@ -55,4 +56,14 @@
 .modal__main {
   padding: 20px;
   height: 150px;
+}
+.modal-btn-container{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.modal-btn{
+     font-weight: bolder;
+     padding: 7px 15px;
 }
