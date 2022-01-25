@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
+import Select from 'react-select';
+
 import "./firmenTop.css";
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
+
 
 const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
   const handleChangeErgebnisse = (e) => {
-    
     setErgebnisse(e.target.value);
   };
 
@@ -20,7 +28,7 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
           <label htmlFor="" className="input_label">
             Ergebnisse
           </label>
-          
+
           <select
             className="input_select_feild"
             value={ergebnisse}

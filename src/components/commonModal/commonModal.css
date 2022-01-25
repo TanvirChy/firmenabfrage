@@ -34,11 +34,11 @@
 
 .close_button {
   border: none;
-  background: transparent;
-  padding: 10px;
-  cursor: pointer;
-  color: darkgray;
-  font-size: 28px;
+    background: transparent;
+    padding: 0px;
+    cursor: pointer;
+    color: darkgray;
+    font-size: 43px;
 }
 
 .close-button:hover {
@@ -62,8 +62,10 @@
   display: flex;
   align-items: center;
   justify-content: end;
+ 
 }
 .modal-btn{
      font-weight: bolder;
      padding: 7px 15px;
+     margin: 2px;
 }
