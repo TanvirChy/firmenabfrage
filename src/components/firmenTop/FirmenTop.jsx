@@ -7,6 +7,18 @@ const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
   { value: "vanilla", label: "Vanilla" },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
 ];
 
 const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
@@ -17,7 +29,7 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
         <label htmlFor="" className="input_label">
           Suchtext
         </label>
-        <p>Swisscom</p>
+        <div className="input-value">Swisscom</div>
       </div>
       <div className="input_section">
         <div className="input_select">

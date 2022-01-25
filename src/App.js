@@ -1,25 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import CommonModal from "./components/commonModal/CommonModal";
+import Zefix from "./components/zefix/Zefix";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <div className='App'>
-      {isOpen && <CommonModal closeModal={closeModal} />}
-
-      <h2>This is modal</h2>
-      <button className='button' onClick={openModal}>
-        Open Modal
-      </button>
+    <div className="App">
+      <Zefix />
     </div>
   );
 }

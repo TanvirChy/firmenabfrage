@@ -1,22 +1,19 @@
-.card_container{
-    top: 0;
-    bottom: 0;
-    background-color: white;
-    left: 50%;
-    right: 50%;
-    margin: 20px;
-    width: 92%;
-    border-radius: 10px;
-    min-height: 30%;
-    
+.card_container {
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  left: 50%;
+  right: 50%;
+  margin: 3% 8%;
+  width: 85%;
+  border-radius: 10px;
+  min-height: 30%;
+  padding-bottom: 50px;
 }
 
-.card_title{
-    font-size: 20px;
-    border-bottom: 1px solid gray;
-    padding: 10px 25px;
-    font-weight: bolder;
-
+.card_title {
+  font-size: 30px;
+  border-bottom: 1px solid gray;
+  padding: 2px 25px;
+  font-weight: bolder;
 }
-
-

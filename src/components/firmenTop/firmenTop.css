@@ -30,10 +30,13 @@
 }
 
 .input_label{
-    padding-right: 20px
+    padding-right: 150px;
+    font-size: 30px;
     
 }
-
+.input-value{
+    font-size: 30px;
+}
 
 .css-319lph-ValueContainer{
     width: 170px;
