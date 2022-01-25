@@ -1,7 +1,12 @@
 import React from "react";
-import './firmenTop.css'
+import "./firmenTop.css";
 
-const FirmenTop = () => {
+const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
+  const handleChangeErgebnisse = (e) => {
+    
+    setErgebnisse(e.target.value);
+  };
+
   return (
     <div className="firmen_top_content">
       <div className="input_section">
@@ -15,15 +20,19 @@ const FirmenTop = () => {
           <label htmlFor="" className="input_label">
             Ergebnisse
           </label>
-
-          <select className="input_select_feild">
-            <option value="">hello</option>
-            <option value="">Ergebnisse</option>
-            <option value="">hello</option>
-            <option value="">Ergebnisse</option>
-            <option value="">hello</option>
-            <option value="">Suchtext</option>
-            <option value="">hello</option>
+          
+          <select
+            className="input_select_feild"
+            value={ergebnisse}
+            onChange={handleChangeErgebnisse}
+          >
+            <option value="hello">hello</option>
+            <option value="Ergebnisse">Ergebnisse</option>
+            <option value="hello">hello</option>
+            <option value="Ergebnisse">Ergebnisse</option>
+            <option value="hello">hello</option>
+            <option value="Suchtext">Suchtext</option>
+            <option value="hello">hello</option>
           </select>
         </div>
       </div>

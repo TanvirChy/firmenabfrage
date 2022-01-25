@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../card/Card";
 import FirmenDetail from "../firmenDetail/FirmenDetail";
 import FirmenTop from "../firmenTop/FirmenTop";
 import "./commonModal.css";
 
 const CommonModal = ({ closeModal }) => {
+  const [ergebnisse,setErgebnisse] = useState(false);
   return (
     <>
       <div className="overlay"></div>
@@ -18,15 +19,16 @@ const CommonModal = ({ closeModal }) => {
         <div className="modal_title">Firmenabfrage</div>
 
         <Card title={"Firmenabfrage"}>
-          <FirmenTop />
+          <FirmenTop ergebnisse={ergebnisse} setErgebnisse={setErgebnisse} />
         </Card>
-        <Card title={'Firmen Detail'}>
+        
+        {ergebnisse && <Card title={'Firmen Detail'}>
           <FirmenDetail />
-        </Card>
-        <div className="modal-btn-container">
+        </Card>}
+        {ergebnisse &&<div className="modal-btn-container">
 
-        <button className="modal-btn" >weiter</button>
-        </div>
+         <button className="modal-btn" >weiter</button>
+        </div>}
       </div>
     </>
   );
