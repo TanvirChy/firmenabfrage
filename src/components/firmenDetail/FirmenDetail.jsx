@@ -6,14 +6,14 @@ const FirmenDetail = () => {
     <div className="firmen_detail_content">
       <div className="firmen_detail_row">
        <div className="firmen-label">
-          <p>name</p>
-          <p>email</p>
-          <p>homeTown</p>
+          <div className="firmen-detail-feilds">name</div>
+          <div className="firmen-detail-feilds">email</div>
+          <div className="firmen-detail-feilds">homeTown</div>
         </div>
         <div className="firmen-value">
-          <p>tanvir</p>
-          <p>tanvir@bitcode.pro</p>
-          <p>Chittagong</p>
+          <div className="firmen-detail-feilds">tanvir</div>
+          <div className="firmen-detail-feilds">tanvir@bitcode.pro</div>
+          <div className="firmen-detail-feilds">Chittagong</div>
         </div> 
       </div>
     </div>

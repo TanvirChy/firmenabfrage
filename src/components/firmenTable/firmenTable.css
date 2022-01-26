@@ -6,3 +6,8 @@
 .ka-cell-text {
   padding: 0px 22px;
 }
+
+.ka-thead-cell-content-wrapper{
+  text-align: left;
+  padding: 0px 22px;
+}

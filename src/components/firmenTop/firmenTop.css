@@ -1,43 +1,104 @@
-.firmen_top_content{
-    padding-top: 20px;
-
-}
- 
-.input_section{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.firmen_top_content {
+  padding-top: 20px;
 }
 
-.input_select{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 120px;
+.input-section-first {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
 }
 
-.input_select_feild{
-    width: 180px;
-    height: 30px;
-    padding-left: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 2px 3px rgb(0 0 255 / 20%);
+.input-section-second {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 170px;
 }
 
-.input_select_feild > option{
-   padding: 10px;
+.input_select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 120px;
 }
 
-.input_label{
-    padding-right: 150px;
-    font-size: 30px;
-    
-}
-.input-value{
-    font-size: 30px;
+.input_select_feild {
+  width: 180px;
+  height: 30px;
+  padding-left: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 3px rgb(0 0 255 / 20%);
 }
 
-.css-319lph-ValueContainer{
-    width: 170px;
+.input_select_feild > option {
+  padding: 10px;
+}
+
+.input-first-label {
+  padding-right: 38px;
+  font-size: 25px;
+}
+
+.input-second-label {
+  padding-right: 40px;
+  font-size: 25px;
+}
+.input-value {
+  font-size: 30px;
+}
+
+.css-319lph-ValueContainer {
+  width: 170px;
+}
+
+.css-b62m3t-container {
+    position: relative;
+    box-sizing: border-box;
+    padding-right: 10px;
+    width: 30%;
+    /* padding-left: 91px; */
+}
+
+@media screen and (max-width: 1024px) {
+    .input-section-second {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px;
+       
+    }
+    .input-second-label {
+        padding-right: 15px;
+        font-size: 25px;
+    }
+    .css-b62m3t-container {
+        position: relative;
+        box-sizing: border-box;
+        padding-right: 10px;
+        width: 150px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 425px) {
+    .input-section-second {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px;
+       
+    }
+    .input-second-label {
+        padding-right: 15px;
+        font-size: 25px;
+    }
+    .css-b62m3t-container {
+        position: relative;
+        box-sizing: border-box;
+        padding-right: 10px;
+        width: 150px;
+    }
 }

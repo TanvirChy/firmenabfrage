@@ -13,7 +13,7 @@ const Zefix = () => {
       <header className="zefix-header">
         <div className="zefix-header-title">Firmenabfrage</div>
       </header>
-      <div className="zefix-title">Firmenabfrage</div>
+      {/* <div className="zefix-title">Firmenabfrage</div> */}
 
       {!weiter && (
         <Card title={"Firmenabfrage"}>
@@ -43,8 +43,18 @@ const Zefix = () => {
       {weiter && (
         <>
           <div className="zefix-btn-container">
-            <button className="zefix-btn">Cencel</button>
-            <button className="zefix-btn">Confirm</button>
+            <button
+              className="zefix-cencel-btn"
+              onClick={() => setWeiter(false)}
+            >
+              Cancel
+            </button>
+            <button
+              className="zefix-confirm-btn"
+             
+            >
+              Confirm
+            </button>
           </div>
         </>
       )}
@@ -53,3 +63,11 @@ const Zefix = () => {
 };
 
 export default Zefix;
+
+
+
+// Test: https://www.zefixintg.admin.ch/ZefixPublicREST/   
+// Production: https://www.zefix.admin.ch/ZefixPublicREST/   
+ 
+// Username: rg@multi-concept.ch
+// Password: 4z7P6NZK

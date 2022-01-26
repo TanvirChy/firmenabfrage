@@ -1,5 +1,10 @@
 .firmen_detail_content {
-    text-align: center;
+  text-align: center;
+}
+
+.firmen-detail-feilds {
+  font-size: 30px;
+  padding: 5px;
 }
 
 .firmen_detail_row {
@@ -22,4 +27,25 @@
   text-align: left;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 425px) {
+  .firmen-detail-feilds {
+    font-size: 20px;
+    padding: 5px;
+    min-height: 30px;
+  }
+  .firmen-label {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  .firmen_detail_row {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    word-wrap: break-word;
+  }
 }
