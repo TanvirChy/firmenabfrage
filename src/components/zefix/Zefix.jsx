@@ -7,14 +7,13 @@ import "./zafix.css";
 
 const Zefix = () => {
   const [ergebnisse, setErgebnisse] = useState(false);
-  
+  const [individual, setIndividual] = useState();
   const [weiter, setWeiter] = useState(false);
   return (
     <div>
       <header className="zefix-header">
         <div className="zefix-header-title">Firmenabfrage</div>
       </header>
-      {/* <div className="zefix-title">Firmenabfrage</div> */}
 
       {!weiter && (
         <Card title={"Firmenabfrage"}>
@@ -24,7 +23,7 @@ const Zefix = () => {
 
       {!weiter && ergebnisse && (
         <Card title={"Firmen Detail"}>
-          <FirmenDetail ergebnisse={ergebnisse} />
+          <FirmenDetail individual={individual} setIndividual={setIndividual} />
         </Card>
       )}
       {!weiter && ergebnisse && (
@@ -35,9 +34,9 @@ const Zefix = () => {
         </div>
       )}
 
-      {weiter && (
+      {weiter && individual && (
         <Card title={"Firmendetails ubernehmen"}>
-          <FirmenTable ergebnisse={ergebnisse} />
+          <FirmenTable individual={individual} />
         </Card>
       )}
 
@@ -50,12 +49,7 @@ const Zefix = () => {
             >
               Cancel
             </button>
-            <button
-              className="zefix-confirm-btn"
-             
-            >
-              Confirm
-            </button>
+            <button className="zefix-confirm-btn">Confirm</button>
           </div>
         </>
       )}
@@ -65,10 +59,8 @@ const Zefix = () => {
 
 export default Zefix;
 
+// Test: https://www.zefixintg.admin.ch/ZefixPublicREST/
+// Production: https://www.zefix.admin.ch/ZefixPublicREST/
 
-
-// Test: https://www.zefixintg.admin.ch/ZefixPublicREST/   
-// Production: https://www.zefix.admin.ch/ZefixPublicREST/   
- 
 // Username: rg@multi-concept.ch
 // Password: 4z7P6NZK

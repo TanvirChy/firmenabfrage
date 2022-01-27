@@ -32,10 +32,6 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
     sendCompanyName();
   }, [data]);
 
- 
-
-  //  { value: 'chocolate', label: 'Chocolate' },
-
   const makeOption = () => {
     companyNames.map((company) => {
       options.push({ label: `${company.name}`, ...company });

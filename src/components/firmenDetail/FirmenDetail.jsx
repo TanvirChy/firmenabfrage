@@ -2,13 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./firmenDetail.css";
 
-const FirmenDetail = ({ ergebnisse }) => {
-  const [individual, setIndividual] = useState();
-
+const FirmenDetail = ({ individual, setIndividual }) => {
   useEffect(() => {
     const getCompanyData = async () => {
       const response = await axios.get("http://localhost:7000");
       setIndividual(response.data);
+      console.log("individual", response.data);
     };
     getCompanyData();
   }, []);
@@ -39,7 +38,9 @@ const FirmenDetail = ({ ergebnisse }) => {
               </a>
             </div>
           </>
-        ): <div>Loading</div>}
+        ) : (
+          <div>Loading</div>
+        )}
       </div>
     </div>
   );

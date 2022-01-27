@@ -11,42 +11,7 @@ import {
 import { DataType, FilteringMode, SortingMode } from "ka-table/enums";
 import { ICellTextProps, IHeadCellProps } from "ka-table/props";
 import { kaPropsUtils } from "ka-table/utils";
-import './firmenTable.css'
-
-
-const data = [
-  {
-    key: "Firma",
-    value: "Swisscom Trust Services AG",
-  },
-  {
-    key: "UID",
-    value: "CHE489728447",
-  },
-  {
-    key: "Strasse",
-    value: "Hardturmstrasse 3",
-  },
-  {
-    key: "Hausnummer",
-    value: "3",
-  },
-  {
-    key: "PLZ",
-    value: "8005",
-  },
-  {
-    key: "Land",
-    value: "Schweiz",
-  },
-];
-
-const dataArray = data.map((item, index) => ({
-  column1: `${item.key}`,
-  column2: `${item.value}`,
-
-  id: index,
-}));
+import "./firmenTable.css";
 
 const SelectionCell = ({
   rowKeyValue,
@@ -58,7 +23,6 @@ const SelectionCell = ({
     <input
       type="checkbox"
       checked={isSelectedRow}
-      
       onChange={(event) => {
         if (event.nativeEvent.shiftKey) {
           dispatch(selectRowsRange(rowKeyValue, [...selectedRows].pop()));
@@ -79,30 +43,67 @@ const SelectionHeader = ({ dispatch, areAllRowsSelected }) => {
       checked={areAllRowsSelected}
       onChange={(event) => {
         if (event.currentTarget.checked) {
-          dispatch(selectAllFilteredRows()); 
+          dispatch(selectAllFilteredRows());
         } else {
-          dispatch(deselectAllFilteredRows()); 
+          dispatch(deselectAllFilteredRows());
         }
       }}
     />
   );
 };
 
-const tablePropsInit = {
-  columns: [
+const FirmenTable = ({ individual }) => {
+  const data = [
     {
-      key: "selection-cell",
+      key: "Firma",
+      value: `${individual.name}`,
     },
-    { key: "column1", dataType: DataType.String },
-    { key: "column2", dataType: DataType.String },
-  ],
+    {
+      key: "UID",
+      value: `${individual.uid}`,
+    },
+    {
+      key: "Strasse",
+      value: `${individual.address.street}`,
+    },
+    {
+      key: "Hausnummer",
+      value: `${individual.address.houseNumber}`,
+    },
+    {
+      key: "PLZ",
+      value: `${individual.address.swissZipCode}`,
+    },
+    {
+      key: "Ort",
+      value: `${individual.address.city}`,
+    },
+    {
+      key: "Land",
+      value: "Schweiz",
+    },
+  ];
 
-  data: dataArray,
-  rowKeyField: "id",
-  selectedRows: [],
-};
+  const dataArray = data.map((item, index) => ({
+    column1: `${item.key}`,
+    column2: `${item.value}`,
 
-const FirmenTable = () => {
+    id: index,
+  }));
+
+  const tablePropsInit = {
+    columns: [
+      {
+        key: "selection-cell",
+      },
+      { key: "column1", dataType: DataType.String },
+      { key: "column2", dataType: DataType.String },
+    ],
+
+    data: dataArray,
+    rowKeyField: "id",
+    selectedRows: [],
+  };
   const [tableProps, changeTableProps] = useState(tablePropsInit);
   const dispatch = (action) => {
     changeTableProps((prevState) => kaReducer(prevState, action));
@@ -115,11 +116,11 @@ const FirmenTable = () => {
           cellText: {
             content: (props) => {
               if (props.column.key === "selection-cell") {
-                return <SelectionCell  {...props} />;
+                return <SelectionCell {...props} />;
               }
             },
           },
-          
+
           headCell: {
             content: (props) => {
               if (props.column.key === "selection-cell") {
@@ -129,7 +130,6 @@ const FirmenTable = () => {
                     areAllRowsSelected={kaPropsUtils.areAllFilteredRowsSelected(
                       tableProps
                     )}
-                   
                   />
                 );
               }
