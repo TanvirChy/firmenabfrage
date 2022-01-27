@@ -7,6 +7,7 @@ import "./zafix.css";
 
 const Zefix = () => {
   const [ergebnisse, setErgebnisse] = useState(false);
+  
   const [weiter, setWeiter] = useState(false);
   return (
     <div>
@@ -23,7 +24,7 @@ const Zefix = () => {
 
       {!weiter && ergebnisse && (
         <Card title={"Firmen Detail"}>
-          <FirmenDetail />
+          <FirmenDetail ergebnisse={ergebnisse} />
         </Card>
       )}
       {!weiter && ergebnisse && (
@@ -36,7 +37,7 @@ const Zefix = () => {
 
       {weiter && (
         <Card title={"Firmendetails ubernehmen"}>
-          <FirmenTable />
+          <FirmenTable ergebnisse={ergebnisse} />
         </Card>
       )}
 

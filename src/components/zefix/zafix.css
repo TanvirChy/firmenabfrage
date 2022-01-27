@@ -79,3 +79,59 @@
     background-color: rgba(96, 0, 234);
 }
 }
+
+
+/* firmenTop */
+
+
+.firmen_detail_content {
+  text-align: center;
+}
+
+.firmen-detail-feilds {
+  font-size: 30px;
+  padding: 5px;
+}
+
+.firmen_detail_row {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  word-wrap: break-word;
+}
+.firmen_detail_row p {
+  height: 15px;
+}
+.firmen-label {
+  width: 50%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.firmen-value {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 425px) {
+  .firmen-detail-feilds {
+    font-size: 20px;
+    padding: 5px;
+    min-height: 30px;
+  }
+  .firmen-label {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  .firmen_detail_row {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    word-wrap: break-word;
+  }
+}

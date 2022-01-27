@@ -27,26 +27,18 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
     const sendCompanyName = async () => {
       const response = await axios.post("http://localhost:5000", data, config);
       setCompanyNames(response.data);
-      console.log('response',response.data);
+      console.log("response", response.data);
     };
     sendCompanyName();
   }, [data]);
 
-  // useEffect(()=>{
-  //   const getCompanyData = async () => {
-  //     const response = await axios.get(
-  //       "http://localhost:6000"
-  //     )
-  //     console.log(response);
-  //   }
-  //   getCompanyData()
-  // },[])
+ 
 
   //  { value: 'chocolate', label: 'Chocolate' },
 
   const makeOption = () => {
     companyNames.map((company) => {
-      options.push({ label: `${company.name}` , ...company });
+      options.push({ label: `${company.name}`, ...company });
     });
   };
   makeOption();

@@ -1,36 +1,48 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./firmenDetail.css";
 
-const FirmenDetail = () => {
+const FirmenDetail = ({ ergebnisse }) => {
+  const [individual, setIndividual] = useState();
+
+  useEffect(() => {
+    const getCompanyData = async () => {
+      const response = await axios.get("http://localhost:7000");
+      setIndividual(response.data);
+    };
+    getCompanyData();
+  }, []);
+
   return (
     <div className="firmen_detail_content">
       <div className="firmen_detail_row">
-       <div className="firmen-label">
-          <div className="firmen-detail-feilds">name</div>
-          <div className="firmen-detail-feilds">email</div>
-          <div className="firmen-detail-feilds">homeTown</div>
-        </div>
-        <div className="firmen-value">
-          <div className="firmen-detail-feilds">tanvir</div>
-          <div className="firmen-detail-feilds">tanvir@bitcode.pro</div>
-          <div className="firmen-detail-feilds">Chittagong</div>
-        </div> 
+        {individual ? (
+          <>
+            <div className="firmen-label">
+              <div className="firmen-detail-feilds">Firma</div>
+              <div className="firmen-detail-feilds">UID</div>
+              <div className="firmen-detail-feilds">Address</div>
+              <div className="firmen-detail-feilds">Zafix Detail</div>
+            </div>
+
+            <div className="firmen-value">
+              <div className="firmen-detail-feilds">{individual.name}</div>
+              <div className="firmen-detail-feilds">{individual.uid}</div>
+              <div className="firmen-detail-feilds">{`${individual.address.street}, ${individual.address.houseNumber} 
+               ${individual.address.swissZipCode} ,${individual.address.city}`}</div>
+              <a
+                target="_blank"
+                href={`${individual.cantonalExcerptWeb}`}
+                className="firmen-detail-feilds"
+              >
+                FirmenLink
+              </a>
+            </div>
+          </>
+        ): <div>Loading</div>}
       </div>
     </div>
   );
 };
 
 export default FirmenDetail;
-
-{
-  /* <div className="firmen-label">
-          <p>name</p>
-          <p>email</p>
-          <p>homeTown</p>
-        </div>
-        <div className="firmen-value">
-          <p>tanvir</p>
-          <p>tanvir@bitcode.profkjdhgkjfshgkjafhgkjasdhfjksadhfak</p>
-          <p>Chittagong</p>
-        </div> */
-}
