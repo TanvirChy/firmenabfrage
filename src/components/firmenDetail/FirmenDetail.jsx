@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "./firmenDetail.css";
 
 const FirmenDetail = ({ individual, setIndividual }) => {
@@ -10,7 +10,7 @@ const FirmenDetail = ({ individual, setIndividual }) => {
       console.log("individual", response.data);
     };
     getCompanyData();
-  }, []);
+  }, [setIndividual]);
 
   return (
     <div className="firmen_detail_content">
@@ -30,7 +30,7 @@ const FirmenDetail = ({ individual, setIndividual }) => {
               <div className="firmen-detail-feilds">{`${individual.address.street}, ${individual.address.houseNumber} 
                ${individual.address.swissZipCode} ,${individual.address.city}`}</div>
               <a
-                target="_blank"
+                // target="_blank"
                 href={`${individual.cantonalExcerptWeb}`}
                 className="firmen-detail-feilds"
               >

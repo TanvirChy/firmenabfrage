@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ITableProps, kaReducer, Table } from "ka-table";
+import {  kaReducer, Table } from "ka-table";
 import {
   deselectAllFilteredRows,
   deselectRow,
@@ -8,8 +8,7 @@ import {
   selectRow,
   selectRowsRange,
 } from "ka-table/actionCreators";
-import { DataType, FilteringMode, SortingMode } from "ka-table/enums";
-import { ICellTextProps, IHeadCellProps } from "ka-table/props";
+import { DataType } from "ka-table/enums";
 import { kaPropsUtils } from "ka-table/utils";
 import "./firmenTable.css";
 

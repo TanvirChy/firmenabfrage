@@ -33,6 +33,7 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
   }, [data]);
 
   const makeOption = () => {
+    // eslint-disable-next-line array-callback-return
     companyNames.map((company) => {
       options.push({ label: `${company.name}`, ...company });
     });
