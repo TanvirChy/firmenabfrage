@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {  kaReducer, Table } from "ka-table";
+import { kaReducer, Table } from "ka-table";
 import {
   deselectAllFilteredRows,
   deselectRow,
