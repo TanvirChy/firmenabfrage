@@ -7,8 +7,8 @@ import "./zafix.css";
 
 const Zefix = () => {
   const [ergebnisse, setErgebnisse] = useState(false);
-  const [individual, setIndividual] = useState();
   const [weiter, setWeiter] = useState(false);
+  const [companyDetail ,setCompanyDetail] = useState(null)
   return (
     <div>
       <header className="zefix-header">
@@ -23,7 +23,7 @@ const Zefix = () => {
 
       {!weiter && ergebnisse && (
         <Card title={"Firmen Detail"}>
-          <FirmenDetail individual={individual} setIndividual={setIndividual} />
+          <FirmenDetail ergebnisse={ergebnisse} companyDetail={companyDetail} setCompanyDetail={setCompanyDetail}/>
         </Card>
       )}
       {!weiter && ergebnisse && (
@@ -34,9 +34,9 @@ const Zefix = () => {
         </div>
       )}
 
-      {weiter && individual && (
+      {weiter && ergebnisse && (
         <Card title={"Firmendetails ubernehmen"}>
-          <FirmenTable individual={individual} />
+          <FirmenTable companyDetail={companyDetail} />
         </Card>
       )}
 

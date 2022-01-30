@@ -1,62 +1,50 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-// import axios from "axios";
 import "./firmenTop.css";
 
 const options = [];
 
 const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
-  const [companyName, setCompanyName] = useState("Swisscom");
+  const [companyName, setCompanyName] = useState("");
   const [companyNames, setCompanyNames] = useState([]);
-  // let data = { company: companyName };
+  const [focused, setFocused] = React.useState(false);
+  const onFocus = () => setFocused(true);
+  const onBlur = () => setFocused(false);
 
-  // useEffect(() => {
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       // // 'Access-Control-Allow-Origin': true,
-  //       // 'Access-Control-Allow-Origin': '*',
-  //       // "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  //     },
-  //     auth: {
-  //       username: "rg@multi-concept.ch",
-  //       password: "4z7P6NZK",
-  //     },
-  //   };
-  //   const sendCompanyName = async () => {
-  //     const response = await axios.post("http://localhost:5000", data, config);
 
-  //     setCompanyNames(response.data);
-  //     console.log("response", response.data);
-  //   };
-  //   sendCompanyName();
-  // }, []);
+  const onChangeHandler = (e) => {
+    setCompanyName(e.target.value);
+  };
 
   useEffect(() => {
+    console.log('effected');
     var formdata = new FormData();
-    formdata.append("company", "swisscom");
+    formdata.append("company", companyName);
 
     var requestOptions = {
       method: "POST",
       body: formdata,
       redirect: "follow",
-      
     };
 
     fetch("http://localhost:5000", requestOptions)
       .then((response) => response.json())
-      // .then((result)=> console.log(result))
       .then((result) => setCompanyNames(result))
+
       .catch((error) => console.log("error", error));
-  }, []);
+  }, [focused]);
 
   const makeOption = () => {
     // eslint-disable-next-line array-callback-return
-    companyNames.map((company) => {
-      options.push({ label: `${company.name}`, ...company });
-    });
+
+    companyNames.length > 0 &&
+      companyNames.map((company) => {
+        options.push({ label: `${company.name}`, value:`${company.name}` , ...company });
+      });
   };
+
   makeOption();
+ 
 
   return (
     <div className="firmen_top_content">
@@ -64,22 +52,28 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
         <label className="input-first-label">Suchtext</label>
         <input
           type="text"
-          onChange={(e) => setCompanyName(e.target.value)}
+          className="first-input-value"
+          onChange={onChangeHandler}
           value={companyName}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </div>
+
       <div className="input-section-second">
         <label className="input-second-label">Ergebnisse</label>
 
-        {companyNames && (
+        {companyNames.length > 0 ? (
           <Select
-            defaultValue={ergebnisse}
             onChange={setErgebnisse}
             className="input-value"
             options={options}
           />
+        ) : (
+          <Select isLoading />
         )}
-        {console.log(ergebnisse)}
+
+       
       </div>
     </div>
   );

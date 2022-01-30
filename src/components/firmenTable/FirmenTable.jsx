@@ -51,31 +51,31 @@ const SelectionHeader = ({ dispatch, areAllRowsSelected }) => {
   );
 };
 
-const FirmenTable = ({ individual }) => {
+const FirmenTable = ({ companyDetail }) => {
   const data = [
     {
       key: "Firma",
-      value: `${individual.name}`,
+      value: `${companyDetail.name}`,
     },
     {
       key: "UID",
-      value: `${individual.uid}`,
+      value: `${companyDetail.uid}`,
     },
     {
       key: "Strasse",
-      value: `${individual.address.street}`,
+      value: `${companyDetail.address.street}`,
     },
     {
       key: "Hausnummer",
-      value: `${individual.address.houseNumber}`,
+      value: `${companyDetail.address.houseNumber}`,
     },
     {
       key: "PLZ",
-      value: `${individual.address.swissZipCode}`,
+      value: `${companyDetail.address.swissZipCode}`,
     },
     {
       key: "Ort",
-      value: `${individual.address.city}`,
+      value: `${companyDetail.address.city}`,
     },
     {
       key: "Land",

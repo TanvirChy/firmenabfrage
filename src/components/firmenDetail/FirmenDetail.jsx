@@ -1,21 +1,45 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect} from "react";
 import "./firmenDetail.css";
 
-const FirmenDetail = ({ individual, setIndividual }) => {
+const FirmenDetail = ({ ergebnisse ,companyDetail,setCompanyDetail }) => {
+  console.log('indivudual form ' ,ergebnisse);
+  
+  const ehraid = ergebnisse.ehraid
+  console.log(ehraid);
+  
+  // useEffect(() => {
+  //   const getCompanyData = async () => {
+  //     const response = await axios.get("http://localhost:7000");
+  //     setIndividual(response.data);
+  //     console.log("individual", response.data);
+  //   };
+  //   getCompanyData();
+  // }, [setIndividual]);
+
   useEffect(() => {
-    const getCompanyData = async () => {
-      const response = await axios.get("http://localhost:7000");
-      setIndividual(response.data);
-      console.log("individual", response.data);
+    var formdata = new FormData();
+    formdata.append("ehraid", ehraid);
+
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
     };
-    getCompanyData();
-  }, [setIndividual]);
+
+    fetch("http://localhost:7000", requestOptions)
+      .then((response) => response.json())
+      // .then((result)=> console.log(result))
+      .then((result) => setCompanyDetail(result))
+      .catch((error) => console.log("error", error));
+  }, [ehraid,setCompanyDetail]);
+
+
 
   return (
     <div className="firmen_detail_content">
       <div className="firmen_detail_row">
-        {individual ? (
+        {companyDetail ? (
           <>
             <div className="firmen-label">
               <div className="firmen-detail-feilds">Firma</div>
@@ -25,13 +49,13 @@ const FirmenDetail = ({ individual, setIndividual }) => {
             </div>
 
             <div className="firmen-value">
-              <div className="firmen-detail-feilds">{individual.name}</div>
-              <div className="firmen-detail-feilds">{individual.uid}</div>
-              <div className="firmen-detail-feilds">{`${individual.address.street}, ${individual.address.houseNumber} 
-               ${individual.address.swissZipCode} ,${individual.address.city}`}</div>
+              <div className="firmen-detail-feilds">{companyDetail.name.slice(0, 35)+'...'}</div>
+              <div className="firmen-detail-feilds">{companyDetail.uid}</div>
+              <div className="firmen-detail-feilds">{`${companyDetail.address.street.slice(0, 15)+'...'}, ${companyDetail.address.houseNumber} 
+               ${companyDetail.address.swissZipCode} ,${companyDetail.address.city.slice(0, 10)+'...'}`}</div>
               <a
                 // target="_blank"
-                href={`${individual.cantonalExcerptWeb}`}
+                href={`${companyDetail.cantonalExcerptWeb}`}
                 className="firmen-detail-feilds"
               >
                 FirmenLink
