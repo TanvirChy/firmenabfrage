@@ -7,7 +7,7 @@ const options = [];
 const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
   const [companyName, setCompanyName] = useState("");
   const [companyNames, setCompanyNames] = useState([]);
-  const [focused, setFocused] = React.useState(false);
+  const [focused, setFocused] = useState(false);
   const onFocus = () => setFocused(true);
   const onBlur = () => setFocused(false);
 
@@ -18,6 +18,7 @@ const FirmenTop = ({ ergebnisse, setErgebnisse }) => {
 
   useEffect(() => {
     console.log('effected');
+    setCompanyNames([])
     var formdata = new FormData();
     formdata.append("company", companyName);
 

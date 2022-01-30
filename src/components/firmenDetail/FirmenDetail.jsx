@@ -54,7 +54,7 @@ const FirmenDetail = ({ ergebnisse ,companyDetail,setCompanyDetail }) => {
               <div className="firmen-detail-feilds">{`${companyDetail.address.street.slice(0, 15)+'...'}, ${companyDetail.address.houseNumber} 
                ${companyDetail.address.swissZipCode} ,${companyDetail.address.city.slice(0, 10)+'...'}`}</div>
               <a
-                // target="_blank"
+                target="_blank"
                 href={`${companyDetail.cantonalExcerptWeb}`}
                 className="firmen-detail-feilds"
               >
